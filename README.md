@@ -1,31 +1,3 @@
-# Docker usage
-
-Environment variables
-
-```
-DB_ENGINE='postgres' (default: sqlite)
-DB_NAME= (default: jasmin-smpp)
-DB_HOST= (No Default)
-DB_USER= (No Default)
-DB_PASSWORD= (No Default)
-
-JASMIN_HOST= (default: jasmin)
-JASMIN_PORT= (default: 8990
-JASMIN_USERNAME= (default: jcliadmin)
-JASMIN_PASSWORD= (default: jclipwd)
-```
-
-Build and Run docker
-
-```shell
-docker build --rm -t local/jasminwebpanel:master ./
-
-docker run -p 8000:8000 -e DB_ENGINE=postgres -e DB_HOST=postgres \
-	 -e DB_USER=airflow -e DB_PASSWORD=airflow \
-	 -e JASMIN_HOST=jasmin -e JASMIN_PORT=8990 -e JASMIN_USERNAME=jcliadmin -e JASMIN_PASSWORD=jclipwd \
-	 -it local/jasminwebpanel:master
-```
-
 # Jasmin Web Panel
 Jasmin SMS Web Interface and REST API for Jasmin SMS Gateway
 
@@ -73,6 +45,33 @@ $ service apache2 restart
 ```
 This requires that you run the collectstatic command (see above) and you should have `DEBUG=False`.
 
+# Docker usage
+
+Environment variables
+
+```
+DB_ENGINE='postgres' (default: sqlite)
+DB_NAME= (default: jasmin-smpp)
+DB_HOST= (No Default)
+DB_USER= (No Default)
+DB_PASSWORD= (No Default)
+
+JASMIN_HOST= (default: jasmin)
+JASMIN_PORT= (default: 8990
+JASMIN_USERNAME= (default: jcliadmin)
+JASMIN_PASSWORD= (default: jclipwd)
+```
+
+Build and Run docker
+
+```shell
+docker build --rm -t local/jasminwebpanel:master ./
+
+docker run -p 8000:8000 -e DB_ENGINE=postgres -e DB_HOST=postgres \
+	 -e DB_USER=airflow -e DB_PASSWORD=airflow \
+	 -e JASMIN_HOST=jasmin -e JASMIN_PORT=8990 -e JASMIN_USERNAME=jcliadmin -e JASMIN_PASSWORD=jclipwd \
+	 -it local/jasminwebpanel:master
+```
 ## Contributes
 
 Inspired by [Jasmin API](https://github.com/jookies/jasmin-api)
