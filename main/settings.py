@@ -53,25 +53,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'main.wsgi.application'
 
-db_engine = os.environ.get('DB_ENGINE', 'sqlite')
-
-if db_engine == 'postgres':
-    DATABASES = {
-        'default': {
-            "NAME": os.environ.get('DB_NAME', 'jasmin-smpp'),
-            "HOST": os.environ.get('DB_HOST'),
-            "ENGINE": "django.db.backends.postgresql",
-            "USER": os.environ.get('DB_USER'),
-            "PASSWORD": os.environ.get('DB_PASSWORD')
-        }
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
